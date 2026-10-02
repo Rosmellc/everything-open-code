@@ -1,0 +1,54 @@
+hooks:
+  - id: pre-compact-save
+    event: session.created
+    scope: main
+    runIn: current
+    async: false
+    conditions:
+      - matchesCodeFiles
+    actions:
+      - bash: ".opencode/scripts/session-start.js"
+
+  - id: post-compact-save
+    event: session.idle
+    scope: main
+    runIn: current
+    async: true
+    conditions:
+      - matchesCodeFiles
+    actions:
+      - bash: ".opencode/scripts/session-end.js"
+
+  - id: suggest-compact
+    event: file.changed
+    scope: main
+    conditions:
+      - matchesCodeFiles
+      - matchesAnyPath:
+          - src/**/*.{ts,tsx,js,jsx}
+          - components/**/*.{ts,tsx,js,jsx}
+    actions:
+      - command: "suggest-compact"
+        runIn: main
+
+  - id: evaluate-patterns
+    event: tool.after.write
+    scope: main
+    conditions:
+      - matchesCodeFiles
+    actions:
+      - tool: evaluate-session
+        args:
+          language: typescript
+          extract_patterns: true
+
+  - id: atomic-commit-prepare
+    event: file.changed
+    scope: main
+    conditions:
+      - matchesCodeFiles
+      - matchesAllPaths:
+          - src/**/*.{ts,tsx,js,jsx}
+          - packages/*/src/**/*.{ts,tsx,js,jsx}
+    actions:
+      - bash: ".opencode/hooks/atomic-commit.sh"

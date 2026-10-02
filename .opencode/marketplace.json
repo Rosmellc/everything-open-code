@@ -1,0 +1,19 @@
+{
+  "name": "everything-claude-code",
+  "display_name": "Everything Claude Code - OpenCode Adaptation",
+  "description": "Native OpenCode adaptation with agents, commands, rules, hooks and skills",
+  "tags": ["coding", "agents", "commands", "hooks", "skills", "productivity"],
+  "category": "productivity",
+  "version": "2.0.0",
+  "author": "Rya (sonrya)",
+  "endpoint": "https://github.com/sonrya/everything-open-code",
+  "documentation": "https://github.com/sonrya/everything-open-code#readme",
+  " compatibilities": ["opencode", "claude-code"],
+  "settings": {
+    "auto_install": true,
+    "install_agents": true,
+    "install_commands": true,
+    "install_hooks": true,
+    "install_skills": true
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "everything-open-code",
+  "description": "Native OpenCode adaptation of Everything Claude Code - complete collection of configs, agents, commands and skills",
+  "version": "2.0.0",
+  "api": "2.0.0",
+  "author": "Rya (sonrya)",
+  "icon": "https://github.com/user-attachments/assets/example-icon",
+  "endpoint": "https://github.com/sonrya/everything-open-code",
+  "commands": [
+    "plan",
+    "tdd",
+    "code-review",
+    "build-fix",
+    "refactor-clean",
+    "learn",
+    "checkpoint",
+    "verify",
+    "setup-pm"
+  ],
+  "agents": [
+    "planner",
+    "code-reviewer",
+    "security-reviewer",
+    "build-error-resolver",
+    "e2e-runner",
+    "refactor-cleaner",
+    "tdd-guide",
+    "doc-updater"
+  ],
+  "skills": [
+    "continuous-learning"
+  ],
+  "hooks": [
+    "session-start",
+    "session-end",
+    "file-changed"
+  ],
+  "rules": "AGENTS.md",
+  "mcpConfig": "mcp-servers.json",
+  "description": "Complete OpenCode adaptation - agents, commands, rules, hooks and skills for productive coding"
+}
